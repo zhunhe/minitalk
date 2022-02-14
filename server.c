@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 10:19:31 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/14 18:25:24 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/14 18:40:45 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,9 @@ static void	handler(int signo)
 	{
 		i = -1;
 		num = 0;
-		while (++i < 9)
+		while (++i < 8)
 		{
-			if (i < 8)
-				num = (num << 1) + g_string[i] - '0';
+			num = (num << 1) + g_string[i] - '0';
 			g_string[i] = '\0';
 		}
 		write(1, &num, 1);
