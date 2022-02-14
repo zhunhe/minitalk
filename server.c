@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 10:19:31 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/14 18:46:10 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/14 20:22:55 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	handler(int signo)
 	int		i;
 	char	c;
 
-	if (signo == 30)
+	if (signo == SIGUSR1)
 		g_string[ft_strlen(g_string)] = '0';
 	else
 		g_string[ft_strlen(g_string)] = '1';
@@ -56,16 +56,10 @@ static void	handler(int signo)
 
 int	main(void)
 {
-	void	(*hand)(int);
-	int		i;
-
 	print_number(getpid(), "0123456789", 10);
 	write(1, "\n", 1);
-	i = -1;
-	while (++i < 9)
-		g_string[i] = '\0';
-	hand = signal(SIGUSR1, handler);
-	hand = signal(SIGUSR2, handler);
+	signal(SIGUSR1, handler);
+	signal(SIGUSR2, handler);
 	while (1)
 		;
 	return (0);
