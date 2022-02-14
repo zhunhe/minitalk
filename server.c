@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 10:19:31 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/14 16:14:11 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/14 17:38:18 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	print_number(int number, char *charset, int base)
 {
 	if (number / base)
-		print_number(number / 10, charset, base);
+		print_number(number / base, charset, base);
 	write(1, &charset[number % base], 1);
 }
 
