@@ -6,7 +6,7 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 10:19:31 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/14 18:40:45 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/14 18:46:10 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static void	print_number(int number, char *charset, int base)
 
 static void	handler(int signo)
 {
-	int	i;
-	int	num;
+	int		i;
+	char	c;
 
 	if (signo == 30)
 		g_string[ft_strlen(g_string)] = '0';
@@ -44,13 +44,13 @@ static void	handler(int signo)
 	if (ft_strlen(g_string) == 8)
 	{
 		i = -1;
-		num = 0;
+		c = 0;
 		while (++i < 8)
 		{
-			num = (num << 1) + g_string[i] - '0';
+			c = (c << 1) + g_string[i] - '0';
 			g_string[i] = '\0';
 		}
-		write(1, &num, 1);
+		write(1, &c, 1);
 	}
 }
 
