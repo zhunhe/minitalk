@@ -6,14 +6,14 @@
 /*   By: juhur <juhur@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 10:19:19 by juhur             #+#    #+#             */
-/*   Updated: 2022/02/14 16:18:33 by juhur            ###   ########.fr       */
+/*   Updated: 2022/02/14 18:31:51 by juhur            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <signal.h>
 #include <unistd.h>
 
-int	ft_atoi(char *s)
+static int	ft_atoi(char *s)
 {
 	int	ret;
 
@@ -23,7 +23,7 @@ int	ft_atoi(char *s)
 	return (ret);
 }
 
-void	send(int pid, char c, int count_idx)
+static void	send(int pid, char c, int count_idx)
 {
 	if (count_idx > 1)
 		send(pid, c / 2, count_idx - 1);
